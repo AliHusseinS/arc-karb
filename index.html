@@ -1,0 +1,3075 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام إدارة المراسلات - محافظة كربلاء المقدسة</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAD8UlEQVR4nO2dMW4UQRREywiJmARzCieE5hJEnACZhMjncESyFifgHuuQxKewIx/BBKhhZXZmunu7f//fVS9xYGtn+tebmp5dWQsIIYQQQgghuDizOtD55dWz1bFm4fHutns+3Q6gwNvTQ4jmL6jg+9NShGYvpODtaSHCqxYnovDH0GLuJxmk4P1Q2wbVDaDwfVGbR5UACt8nNbkUC6DwfVOaT5EACj8GJTk1eQoQcckWQFd/LHLzyhJA4cckJzfdAsjZFEBXf2y28lMDkLMqgK7+OVjLUQ1AjgQgRwKQsyiA7v9zsZSnGoAcCUCOBCBHApAjAch5PfLgD/vdyMO74v3Hr0OOO0QABf8/aSbWIpjfAt59UvhrWM/HVIC0uIsby6PGIc3FUgIzAV7W/sWNREgcm4XVbdJEgIf9bjFsdgnW5mIhgYkAWyGzSuBhLt0FeNjvcH+9/XdsEuSs9/66fwuYPQYmCdYWnn6XI0xUcoO3wvwxkLkNvIUPDHormFECj+EDAz8LYJLAa/jA4M8CZt8XeA4+4eLTwBnbIEL4gBMBgLkkiBI+4EgAYA4JIoUPDN4DHCPqviBa8AlXDXBIpDaIGj7gWAAghgSRwwecCwDkS2AtQu4xPYcPBBAA+DNET22QG7z38IEgAiQ8SDDDVX9IKAGAsRLMFj7g8DEwB+tHxRmDT4RrgEMs2mDm8IHgAgB9JZg9fGACAYA+EjCEDwTdAxyj1b6AJfjEFA1wyCltwBY+MKEAQJ0EjOEDkwoAlEnAGj4w0R7gGCX7gq3XmJVpG+CQ2hBnDx8gEQAoD5MhfIBIACA/VJbwgcn3AMdY2xcwBZ+gaoBDUtgvf7JBKwCg8AFyAYQEoEcCkBP6KeDtzx+jT+EvT5+/jD6FKtQA5EgAciQAORKAnBCbQE+bvSWWztH75tB9A0QIfw3v5+9aAO/Dy8XzOtwK4HloNXhdT3cBRn0Txiz0np/bBhA2mAigFqjDYm5mDSAJyrCal+ktQBLkYTkn8z2AJFjHej5D3glMi9TXx/2D6nsDE6uL/vbB7kSM8Nh+egwkRwKQIwHIkQDkSAByJAA5EoAcCUCOBCBHApAjAchxK8Cb779Gn0JTvK7HrQCA36GV4nkdiwI83t2eWZ7IEp6Hl4OX81/KM8R/BnkZ4oy4vgWI/kgAclYF8LIPEKexlqMagJxNAdQCsdnKTw1ATpYAaoGY5OSW3QCSIBa5eekWQE6RAGqBGJTkVNwAksA3pflU3QIkgU9qcqneA0gCX9Tm0STE88ur5xavI8o59UJs8hSgNhhDi7k3D05t0J+WF1y3K1citKdH05pVt4QoR7dWIYQQQgjRhd8gokKrrfxwIgAAAABJRU5ErkJggg==">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Cairo Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- SheetJS for Excel Import/Export -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <!-- Application Stylesheet -->
+  <style>
+/* ==========================================================================
+   نظام إدارة المراسلات - Modern RTL Web Application Styles
+   الهوية البصرية مطابقة للنموذج المرجعي design_reference_karbala.png
+   ========================================================================== */
+
+:root {
+  --primary-dark: #06231f;       /* الكحلي الزيتي الداكن */
+  --primary: #0a332d;            /* اللون الزيتي العميق الرئيسي */
+  --primary-light: #114b43;      /* الأخضر الزيتي للأزرار والهيدر */
+  --accent-gold: #c89d53;        /* الذهبي الراقي للشعار والحدود */
+  --accent-gold-light: #dfb772;
+  --bg-page: #eff4f8;            /* خلفية الصفحة الفاتحة */
+  --bg-card: #ffffff;            /* خلفية البطاقات */
+  --border-color: #d1dde8;       /* لون الحواف */
+  --border-input: #b8ccdc;
+  --text-main: #143048;          /* لون الخط الأساسي */
+  --text-muted: #5e7991;         /* لون الخط الخافت */
+  --text-light: #f0f7f6;
+  
+  --color-in: #e6f4ea;           /* أخضر فاتح للوارد */
+  --color-in-text: #137333;
+  --color-out: #e8f0fe;          /* أزرق فاتح للصادر */
+  --color-out-text: #1a73e8;
+  --color-archive: #e6f4ea;
+  --color-archive-no: #fce8e6;
+  --color-archive-no-text: #c5221f;
+  
+  --shadow-sm: 0 2px 6px rgba(10, 51, 45, 0.06);
+  --shadow-md: 0 4px 14px rgba(10, 51, 45, 0.1);
+  --shadow-lg: 0 8px 25px rgba(6, 35, 31, 0.15);
+  
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  direction: rtl;
+  text-align: right;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Header (شريط الرأس العلوي الفخم)
+   ========================================================================== */
+.main-header {
+  background: linear-gradient(135deg, #041916 0%, #0a332d 40%, #0d423a 100%);
+  color: #fff;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: relative;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+  z-index: 100;
+  border-bottom: 2px solid var(--accent-gold);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-emblem-wrap {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-gold);
+  background: radial-gradient(circle, #fff 40%, #dfb772 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.header-emblem {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+.header-title-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.system-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.system-sub {
+  font-size: 0.85rem;
+  color: var(--accent-gold-light);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.karbala-badge {
+  background: rgba(200, 157, 83, 0.25);
+  border: 1px solid var(--accent-gold);
+  color: #f7e6c4;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.live-datetime-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.9rem;
+  color: #f0f7f6;
+  font-weight: 600;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(200, 157, 83, 0.4);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.user-badge i {
+  color: var(--accent-gold);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-hdr {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-hdr:hover {
+  background: var(--accent-gold);
+  color: #06231f;
+  border-color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   Top Action Toolbar (شريط الإجراءات والبحث السريع مثل النموذج)
+   ========================================================================== */
+.top-action-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.action-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.btn-action i {
+  font-size: 1rem;
+}
+
+.btn-action.btn-add {
+  background: #eafaf1;
+  color: #107c41;
+  border-color: #a3e6be;
+}
+.btn-action.btn-add:hover {
+  background: #107c41;
+  color: #fff;
+}
+
+.btn-action.btn-edit {
+  background: #eef6ff;
+  color: #1a73e8;
+  border-color: #b9d7fc;
+}
+.btn-action.btn-edit:hover {
+  background: #1a73e8;
+  color: #fff;
+}
+
+.btn-action.btn-delete {
+  background: #fdf2f2;
+  color: #d93025;
+  border-color: #f7b7b2;
+}
+.btn-action.btn-delete:hover {
+  background: #d93025;
+  color: #fff;
+}
+
+.btn-action.btn-refresh {
+  background: #f5f8fb;
+  color: #3b5974;
+  border-color: #cfe0ee;
+}
+.btn-action.btn-refresh:hover {
+  background: #3b5974;
+  color: #fff;
+}
+
+.btn-action.btn-excel {
+  background: #f0f7f3;
+  color: #1e7e34;
+  border-color: #badfc4;
+}
+.btn-action.btn-excel:hover {
+  background: #1e7e34;
+  color: #fff;
+}
+
+.btn-action.btn-trash {
+  background: #fff8f5;
+  color: #e65100;
+  border-color: #fed7c3;
+}
+.btn-action.btn-trash:hover {
+  background: #e65100;
+  color: #fff;
+}
+
+.top-search-box {
+  flex: 1;
+  max-width: 480px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.top-search-box input {
+  width: 100%;
+  padding: 8px 38px 8px 14px;
+  border: 1px solid var(--border-input);
+  border-radius: 20px;
+  font-size: 0.92rem;
+  background: #f9fbfd;
+  transition: all 0.25s ease;
+}
+
+.top-search-box input:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(10, 51, 45, 0.12);
+}
+
+.top-search-box .search-icon {
+  position: absolute;
+  right: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Main Layout (Sidebar + Content)
+   ========================================================================== */
+.main-wrapper {
+  display: flex;
+  flex: 1;
+  padding: 16px 20px;
+  gap: 16px;
+}
+
+/* Sidebar (القائمة الجانبية بالهوية الكربلائية) */
+.sidebar {
+  width: 230px;
+  background: linear-gradient(180deg, #06231f 0%, #0a332d 50%, #082823 100%);
+  border-radius: var(--radius-md);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(200, 157, 83, 0.35);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-item {
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px;
+  color: #e2f0ed;
+  text-decoration: none;
+  font-size: 0.96rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-link-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-link i {
+  font-size: 1.15rem;
+  width: 22px;
+  text-align: center;
+  color: var(--accent-gold-light);
+}
+
+.sidebar-badge {
+  background: rgba(200, 157, 83, 0.3);
+  color: #fcefdc;
+  padding: 2px 7px;
+  border-radius: 12px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.sidebar-item:hover .sidebar-link {
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+}
+
+.sidebar-item.active .sidebar-link {
+  background: linear-gradient(90deg, #10594f, #146e62);
+  color: #ffffff;
+  border-right: 4px solid var(--accent-gold);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: rgba(200, 157, 83, 0.25);
+  margin: 6px 10px;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 12px 8px 14px;
+  text-align: center;
+}
+
+.sidebar-artwork {
+  width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+.sidebar-slogan {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-gold-light);
+  letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   Main Content Area
+   ========================================================================== */
+.content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Stats Row (بطاقات الإحصائيات) */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.stat-card.total .stat-icon { background: #eaf2fd; color: #1a73e8; }
+.stat-card.inward .stat-icon { background: #e6f8ec; color: #137333; }
+.stat-card.outward .stat-icon { background: #fef7e0; color: #b06000; }
+.stat-card.municipal .stat-icon { background: #f3e8fd; color: #8430ce; }
+.stat-card.governor .stat-icon { background: #e0f2f1; color: #00796b; }
+.stat-card.archived .stat-icon { background: #fce8e6; color: #c5221f; }
+
+/* ==========================================================================
+   Form Card (بطاقة بيانات المراسلة - تصميم مطابق تماماً للصورة المرجعية)
+   ========================================================================== */
+.card-form {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.card-form-header {
+  background: linear-gradient(90deg, #0a332d, #144e45);
+  color: #fff;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--accent-gold);
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-body-wrapper {
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+}
+
+/* Attachment Drop Box (مربع المرفق يسار النموذج مثل الصورة) */
+.attachment-drop-box {
+  border: 2px dashed #b5cadc;
+  border-radius: var(--radius-md);
+  background: #f7fafd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+  text-align: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.attachment-drop-box:hover {
+  background: #eef6fc;
+  border-color: var(--primary);
+}
+
+.att-icon {
+  font-size: 2.8rem;
+  color: #8faec8;
+}
+
+.att-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.btn-attach {
+  background: #ffffff;
+  border: 1px solid var(--border-input);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+
+.btn-attach:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* Form Fields Grid (الحقول المنظمة) */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a4261;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  color: var(--text-main);
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(10, 51, 45, 0.12);
+}
+
+textarea.form-control {
+  min-height: 52px;
+  resize: vertical;
+}
+
+/* Radio Status (الأرشفة: مؤرشف / غير مؤرشف) */
+.status-pill-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 0;
+}
+
+.status-pill-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.status-pill-option input[type="radio"] {
+  accent-color: #107c41;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.status-archived-label {
+  color: #107c41;
+}
+
+.status-unarchived-label {
+  color: #d93025;
+}
+
+/* Next Sequence Hint */
+.seq-hint {
+  font-size: 0.78rem;
+  color: #276fbf;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Table Card (جدول المراسلات مع الترقيم)
+   ========================================================================== */
+.card-table {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-table-header {
+  background: linear-gradient(90deg, #0a332d, #144e45);
+  color: #fff;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--accent-gold);
+}
+
+.table-filter-bar {
+  padding: 10px 18px;
+  background: #f8fbfe;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.table-filter-search {
+  flex: 1;
+  max-width: 380px;
+  position: relative;
+}
+
+.table-filter-search input {
+  width: 100%;
+  padding: 6px 34px 6px 12px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+}
+
+.table-filter-search i {
+  position: absolute;
+  right: 11px;
+  top: 9px;
+  color: var(--text-muted);
+}
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: 240px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: right;
+}
+
+.data-table thead {
+  background: #edf4fa;
+  color: #173854;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.data-table th {
+  padding: 10px 12px;
+  font-weight: 800;
+  border-bottom: 2px solid #d3e2ee;
+  border-right: 1px solid #d3e2ee;
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #e1ebf4;
+  border-right: 1px solid #e8f1f8;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.data-table tbody tr {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f1f7fc;
+}
+
+.data-table tbody tr.selected {
+  background-color: #dbeeff !important;
+  font-weight: 600;
+}
+
+.tag-archive {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.tag-archive.yes {
+  background: #e6f4ea;
+  color: #137333;
+}
+
+.tag-archive.no {
+  background: #fce8e6;
+  color: #c5221f;
+}
+
+/* Pagination Bar */
+.pagination-bar {
+  padding: 10px 18px;
+  background: #ffffff;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagination-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-page {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 6px;
+  border: 1px solid var(--border-input);
+  background: #fff;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-page:hover:not(:disabled) {
+  background: #e9f2fb;
+  border-color: var(--primary);
+}
+
+.btn-page.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.btn-page:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Footer (شريط الحالة السفلي)
+   ========================================================================== */
+.main-footer {
+  background: #06231f;
+  color: #c9dbd8;
+  height: 38px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-top: 1px solid rgba(200, 157, 83, 0.3);
+}
+
+.footer-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 0 8px #25d366;
+}
+
+.status-dot.offline {
+  background: #ffaa00;
+  box-shadow: 0 0 8px #ffaa00;
+}
+
+/* ==========================================================================
+   Modals (النوافذ المنبثقة: الإعدادات، ربط السكربت، التقارير)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(4, 25, 22, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-window {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  width: 90%;
+  max-width: 620px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transform: translateY(-20px);
+  transition: transform 0.25s ease;
+}
+
+.modal-overlay.active .modal-window {
+  transform: translateY(0);
+}
+
+.modal-header {
+  background: linear-gradient(90deg, #0a332d, #144e45);
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--accent-gold);
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.modal-close:hover {
+  opacity: 1;
+  color: var(--accent-gold);
+}
+
+.modal-body {
+  padding: 20px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  padding: 12px 20px;
+  background: #f7fafc;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  bottom: 50px;
+  left: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: #143048;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-right: 4px solid var(--accent-gold);
+  animation: slideIn 0.3s ease;
+}
+
+.toast.success { border-right-color: #25d366; }
+.toast.error { border-right-color: #d93025; }
+.toast.info { border-right-color: #1a73e8; }
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .main-wrapper {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .form-body-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .attachment-drop-box {
+    height: 110px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- ================= Header (شريط الرأس العلوي) ================= -->
+  <header class="main-header">
+    <div class="header-right">
+      <div class="header-emblem-wrap">
+        <img src="data:image/png;base64,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" alt="شعار المحافظة" class="header-emblem" id="headerEmblem">
+      </div>
+      <div class="header-title-box">
+        <div class="system-title">نظام إدارة المراسلات</div>
+        <div class="system-sub">
+          <span>إدارة - تنظيم - أرشفة - متابعة</span>
+          <span class="karbala-badge">محافظة كربلاء المقدسة</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="live-datetime-badge">
+        <i class="far fa-calendar-alt"></i>
+        <span id="currentDateDisplay">السبت 2026/09/20</span>
+        <span style="opacity: 0.5;">|</span>
+        <i class="far fa-clock"></i>
+        <span id="currentTimeDisplay">10:24 ص</span>
+      </div>
+    </div>
+
+    <div class="header-left">
+      <div class="user-badge">
+        <i class="fas fa-user-shield"></i>
+        <span id="currentUser">مدير النظام</span>
+      </div>
+      <div class="header-actions">
+        <button class="btn-hdr" onclick="openSettingsModal()" title="إعدادات الربط والنظام">
+          <i class="fas fa-cog"></i>
+          <span>الإعدادات</span>
+        </button>
+        <button class="btn-hdr" onclick="openReportsModal()" title="التقارير والإحصائيات">
+          <i class="fas fa-chart-bar"></i>
+          <span>التقارير</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Top Action Toolbar (شريط الإجراءات والبحث السريع) ================= -->
+  <div class="top-action-bar">
+    <div class="action-buttons-group">
+      <button class="btn-action btn-add" onclick="handleAddNew()">
+        <i class="fas fa-plus-circle"></i>
+        <span>إضافة</span>
+      </button>
+      <button class="btn-action btn-edit" onclick="handleEditSelected()">
+        <i class="fas fa-edit"></i>
+        <span>تعديل</span>
+      </button>
+      <button class="btn-action btn-delete" onclick="handleDeleteSelected()">
+        <i class="fas fa-trash-alt"></i>
+        <span>حذف</span>
+      </button>
+      <button class="btn-action btn-refresh" onclick="refreshData(true)">
+        <i class="fas fa-sync-alt"></i>
+        <span>تحديث</span>
+      </button>
+      <button class="btn-action btn-excel" onclick="exportToExcel()">
+        <i class="fas fa-file-excel"></i>
+        <span>قالب موحد</span>
+      </button>
+      <button class="btn-action btn-trash" onclick="openTrashModal()">
+        <i class="fas fa-trash-restore"></i>
+        <span>المحفوظات مؤخراً</span>
+      </button>
+    </div>
+
+    <div class="top-search-box">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="globalSearchInput" placeholder="بحث في المراسلات (الرقم، الموضوع، الجهة)..." oninput="handleSearch()">
+    </div>
+  </div>
+
+  <!-- ================= Main Wrapper (القائمة الجانبية والمحتوى) ================= -->
+  <div class="main-wrapper">
+    
+    <!-- Sidebar القائمة الجانبية -->
+    <aside class="sidebar">
+      <ul class="sidebar-menu">
+        <li class="sidebar-item active" data-section="all" onclick="selectSection('all', this)">
+          <a class="sidebar-link">
+            <div class="sidebar-link-content">
+              <i class="fas fa-home"></i>
+              <span>الرئيسية</span>
+            </div>
+            <span class="sidebar-badge" id="badge-all">0</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-section="الوارد" onclick="selectSection('الوارد', this)">
+          <a class="sidebar-link">
+            <div class="sidebar-link-content">
+              <i class="fas fa-inbox"></i>
+              <span>الوارد</span>
+            </div>
+            <span class="sidebar-badge" id="badge-الوارد">0</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-section="الصادر" onclick="selectSection('الصادر', this)">
+          <a class="sidebar-link">
+            <div class="sidebar-link-content">
+              <i class="fas fa-paper-plane"></i>
+              <span>الصادر</span>
+            </div>
+            <span class="sidebar-badge" id="badge-الصادر">0</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-section="بريد البلدية والبلديات" onclick="selectSection('بريد البلدية والبلديات', this)">
+          <a class="sidebar-link">
+            <div class="sidebar-link-content">
+              <i class="fas fa-landmark"></i>
+              <span>بريد البلديات</span>
+            </div>
+            <span class="sidebar-badge" id="badge-بريد البلدية والبلديات">0</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-section="بريد المحافظ" onclick="selectSection('بريد المحافظ', this)">
+          <a class="sidebar-link">
+            <div class="sidebar-link-content">
+              <i class="fas fa-envelope-open-text"></i>
+              <span>بريد المحافظ</span>
+            </div>
+            <span class="sidebar-badge" id="badge-بريد المحافظ">0</span>
+          </a>
+        </li>
+
+        <div class="sidebar-divider"></div>
+
+        <li class="sidebar-item" onclick="openReportsModal()">
+          <a class="sidebar-link">
+            <div class="sidebar-link-content">
+              <i class="fas fa-chart-line"></i>
+              <span>التقارير</span>
+            </div>
+          </a>
+        </li>
+        <li class="sidebar-item" onclick="filterArchivedOnly()">
+          <a class="sidebar-link">
+            <div class="sidebar-link-content">
+              <i class="fas fa-folder"></i>
+              <span>الأرشيف</span>
+            </div>
+            <span class="sidebar-badge" id="badge-archived">0</span>
+          </a>
+        </li>
+        <li class="sidebar-item" onclick="openTrashModal()">
+          <a class="sidebar-link">
+            <div class="sidebar-link-content">
+              <i class="fas fa-trash-alt"></i>
+              <span>المحفوظات مؤخراً</span>
+            </div>
+            <span class="sidebar-badge" id="badge-trash">0</span>
+          </a>
+        </li>
+        <li class="sidebar-item" onclick="exportToExcel()">
+          <a class="sidebar-link">
+            <div class="sidebar-link-content">
+              <i class="fas fa-file-excel"></i>
+              <span>قالب موحد</span>
+            </div>
+          </a>
+        </li>
+        <li class="sidebar-item" onclick="openSettingsModal()">
+          <a class="sidebar-link">
+            <div class="sidebar-link-content">
+              <i class="fas fa-sliders-h"></i>
+              <span>إعدادات الأرشفة والربط</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <img src="data:image/png;base64,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" alt="كربلاء" class="sidebar-artwork">
+        <div class="sidebar-slogan">معاً نحو إدارة أفضل</div>
+      </div>
+    </aside>
+
+    <!-- Main Content محتوى الشاشة -->
+    <main class="content-area">
+
+      <!-- الإحصائيات الحية -->
+      <section class="stats-row">
+        <div class="stat-card total" onclick="selectSection('all')">
+          <div class="stat-info">
+            <span class="stat-label">إجمالي المراسلات</span>
+            <span class="stat-value" id="stat-total">0</span>
+          </div>
+          <div class="stat-icon"><i class="fas fa-layer-group"></i></div>
+        </div>
+
+        <div class="stat-card inward" onclick="selectSection('الوارد')">
+          <div class="stat-info">
+            <span class="stat-label">الوارد</span>
+            <span class="stat-value" id="stat-inward">0</span>
+          </div>
+          <div class="stat-icon"><i class="fas fa-inbox"></i></div>
+        </div>
+
+        <div class="stat-card outward" onclick="selectSection('الصادر')">
+          <div class="stat-info">
+            <span class="stat-label">الصادر</span>
+            <span class="stat-value" id="stat-outward">0</span>
+          </div>
+          <div class="stat-icon"><i class="fas fa-paper-plane"></i></div>
+        </div>
+
+        <div class="stat-card municipal" onclick="selectSection('بريد البلدية والبلديات')">
+          <div class="stat-info">
+            <span class="stat-label">بريد البلديات</span>
+            <span class="stat-value" id="stat-municipal">0</span>
+          </div>
+          <div class="stat-icon"><i class="fas fa-landmark"></i></div>
+        </div>
+
+        <div class="stat-card governor" onclick="selectSection('بريد المحافظ')">
+          <div class="stat-info">
+            <span class="stat-label">بريد المحافظ</span>
+            <span class="stat-value" id="stat-governor">0</span>
+          </div>
+          <div class="stat-icon"><i class="fas fa-envelope-open-text"></i></div>
+        </div>
+
+        <div class="stat-card archived" onclick="filterArchivedOnly()">
+          <div class="stat-info">
+            <span class="stat-label">الأرشيف</span>
+            <span class="stat-value" id="stat-archived">0</span>
+          </div>
+          <div class="stat-icon"><i class="fas fa-archive"></i></div>
+        </div>
+      </section>
+
+      <!-- بطاقة بيانات المراسلة (إدخال وتعديل مطابق للنموذج) -->
+      <section class="card-form">
+        <div class="card-form-header">
+          <div class="card-title">
+            <i class="fas fa-file-signature"></i>
+            <span>بيانات المراسلة</span>
+          </div>
+          <div style="font-size: 0.85rem; color: #dfb772; font-weight: 700;" id="formSectionTitle">
+            القسم الحالي: الوارد
+          </div>
+        </div>
+
+        <form id="recordForm" onsubmit="event.preventDefault(); handleSave();">
+          <input type="hidden" id="field-id">
+          
+          <div class="form-body-wrapper">
+            <!-- مربع المرفق (يسار النموذج) -->
+            <div class="attachment-drop-box" id="attachmentDropZone" onclick="triggerFileInput()">
+              <i class="fas fa-file-pdf att-icon" id="attachmentIcon"></i>
+              <div class="att-label" id="attachmentText">لا يوجد مرفق</div>
+              <button type="button" class="btn-attach" onclick="event.stopPropagation(); triggerFileInput();">
+                <i class="fas fa-paperclip"></i>
+                <span>إرفاق ملف</span>
+              </button>
+              <input type="file" id="fileInput" style="display: none;" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" onchange="handleFileSelected(event)">
+              <div id="attachmentUrlWrap" style="display: none; margin-top: 5px;">
+                <a href="#" id="viewAttachmentBtn" target="_blank" style="font-size: 0.78rem; color: #1a73e8; font-weight: 700; text-decoration: underline;">عرض المرفق الحالي</a>
+              </div>
+            </div>
+
+            <!-- الحقول المنظمة (يمين النموذج) -->
+            <div class="form-grid">
+              
+              <!-- القسم -->
+              <div class="form-group">
+                <label class="form-label">القسم</label>
+                <select id="field-section" class="form-control" onchange="onSectionFormChange()">
+                  <option value="الوارد">الوارد</option>
+                  <option value="الصادر">الصادر</option>
+                  <option value="بريد البلدية والبلديات">بريد البلدية والبلديات</option>
+                  <option value="بريد المحافظ">بريد المحافظ</option>
+                </select>
+              </div>
+
+              <!-- التسلسل -->
+              <div class="form-group">
+                <label class="form-label">التسلسل</label>
+                <input type="text" id="field-sequence_no" class="form-control" placeholder="1, 2, 3...">
+                <div class="seq-hint" id="sequenceHint">التالي المقترح: 1</div>
+              </div>
+
+              <!-- تاريخ إدخال المعلومات -->
+              <div class="form-group">
+                <label class="form-label">تاريخ إدخال المعلومات</label>
+                <input type="text" id="field-entry_date" class="form-control" readonly>
+              </div>
+
+              <!-- رقم الكتاب -->
+              <div class="form-group">
+                <label class="form-label">رقم الكتاب <span style="color:red;">*</span></label>
+                <input type="text" id="field-book_no" class="form-control" placeholder="أدخل رقم الكتاب..." required>
+              </div>
+
+              <!-- تاريخ الكتاب -->
+              <div class="form-group">
+                <label class="form-label">تاريخ الكتاب <span style="color:red;">*</span></label>
+                <input type="date" id="field-book_date" class="form-control" required>
+              </div>
+
+              <!-- الجهة المرسلة -->
+              <div class="form-group">
+                <label class="form-label">الجهة المرسلة <span style="color:red;">*</span></label>
+                <input type="text" id="field-sender" class="form-control" placeholder="وزارة الداخلية، مديرية التربية..." required list="senderSuggestions">
+                <datalist id="senderSuggestions">
+                  <option value="مديرية تربية كربلاء">
+                  <option value="دائرة صحة كربلاء">
+                  <option value="بلدية كربلاء">
+                  <option value="جامعة كربلاء">
+                  <option value="قيادة شرطة كربلاء">
+                  <option value="وزارة الإعمار والإسكان والبلديات">
+                  <option value="ديوان محافظة كربلاء">
+                  <option value="وزارة المالية">
+                  <option value="وزارة الداخلية">
+                </datalist>
+              </div>
+
+              <!-- الموضوع -->
+              <div class="form-group full-width">
+                <label class="form-label">الموضوع <span style="color:red;">*</span></label>
+                <input type="text" id="field-subject" class="form-control" placeholder="أدخل موضوع المراسلة..." required>
+              </div>
+
+              <!-- التحويل -->
+              <div class="form-group">
+                <label class="form-label">التحويل</label>
+                <input type="text" id="field-transfer" class="form-control" placeholder="إلى قسم المتابعة، إلى الإدارة..." list="transferSuggestions">
+                <datalist id="transferSuggestions">
+                  <option value="إلى قسم المتابعة">
+                  <option value="إلى الإدارة">
+                  <option value="إلى شعبة العلاقات">
+                  <option value="إلى المدير">
+                  <option value="إلى الشؤون المالية">
+                  <option value="إلى الشؤون القانونية">
+                  <option value="إلى قسم التخطيط">
+                </datalist>
+              </div>
+
+              <!-- الأرشفة -->
+              <div class="form-group">
+                <label class="form-label">الأرشفة</label>
+                <div class="status-pill-group">
+                  <label class="status-pill-option status-archived-label">
+                    <input type="radio" name="field-archive" id="archive-yes" value="مؤرشف">
+                    <span>🟢 مؤرشف</span>
+                  </label>
+                  <label class="status-pill-option status-unarchived-label">
+                    <input type="radio" name="field-archive" id="archive-no" value="غير مؤرشف" checked>
+                    <span>🔴 غير مؤرشف</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- الملاحظات -->
+              <div class="form-group full-width">
+                <label class="form-label">الملاحظات</label>
+                <textarea id="field-notes" class="form-control" placeholder="أكتب الملاحظات هنا..."></textarea>
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- بطاقة جدول نتائج البحث والمراسلات -->
+      <section class="card-table">
+        <div class="card-table-header">
+          <div class="card-title">
+            <i class="fas fa-table"></i>
+            <span>نتائج البحث وقائمة المراسلات</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 0.85rem;">عرض لكل صفحة:</span>
+            <select id="pageSizeSelect" style="padding: 3px 8px; border-radius: 4px; font-weight: bold;" onchange="changePageSize(this.value)">
+              <option value="5" selected>5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-filter-bar">
+          <div class="table-filter-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="tableFilterInput" placeholder="بحث سريع في الجدول الحالي..." oninput="handleTableFilter()">
+          </div>
+          <div style="font-size: 0.85rem; color: #5e7991; font-weight: 700;" id="tableSubHeader">
+            عرض المراسلات للقسم المحدد
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table" id="recordsTable">
+            <thead>
+              <tr>
+                <th style="width: 60px;">التسلسل</th>
+                <th>القسم</th>
+                <th>تاريخ إدخال المعلومات</th>
+                <th>رقم الكتاب</th>
+                <th>تاريخ الكتاب</th>
+                <th>الجهة المرسلة</th>
+                <th>الموضوع</th>
+                <th>التحويل</th>
+                <th>الأرشفة</th>
+                <th>الملاحظات</th>
+                <th style="width: 50px;">المرفق</th>
+              </tr>
+            </thead>
+            <tbody id="recordsTableBody">
+              <!-- يتم ملؤها ديناميكياً بواسطة JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination-bar">
+          <div class="pagination-info" id="paginationInfo">
+            عرض 1 - 5 من 21 سجل
+          </div>
+          <div class="pagination-controls" id="paginationControls">
+            <!-- أزرار الصفحات -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ================= Footer (شريط الحالة السفلي) ================= -->
+  <footer class="main-footer">
+    <div class="footer-status-indicator">
+      <div class="status-dot" id="connectionStatusDot"></div>
+      <span id="connectionStatusText">النظام متصل ويعمل بنجاح (المزامنة السريعة مفعلة)</span>
+    </div>
+    <div>
+      <span>المجلد الحالي: <strong id="currentFolderText">المراسلات</strong></span>
+      <span style="margin: 0 10px; opacity: 0.4;">|</span>
+      <span>نظام إدارة المراسلات - الإصدار 32 Web • محافظة كربلاء المقدسة</span>
+    </div>
+  </footer>
+
+  <!-- ================= Modal: إعدادات الربط مع Google Apps Script ================= -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fas fa-cogs"></i>
+          <span>إعدادات النظام والربط السحابي (Google Apps Script)</span>
+        </div>
+        <button class="modal-close" onclick="closeSettingsModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">رابط تطبيق Google Apps Script (Web App URL)</label>
+          <input type="url" id="setting-script-url" class="form-control" placeholder="https://script.google.com/macros/s/.../exec">
+          <small style="color: #637b92; margin-top: 4px; display: block;">
+            انسخ رابط النشر (Deployment URL) من Google Script للربط المباشر مع Google Sheets و Google Drive.
+          </small>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">وضع التخزين والعمل</label>
+          <select id="setting-storage-mode" class="form-control">
+            <option value="hybrid">هجين (تخزين محلي فوري + مزامنة سحابية مع Google)</option>
+            <option value="cloud_only">سحابي فقط (Google Sheets)</option>
+            <option value="local_only">محلي فقط (Offline / المتصفح)</option>
+          </select>
+        </div>
+
+        <div style="background: #eef6fc; padding: 12px; border-radius: 6px; border: 1px solid #c9dff2; margin-bottom: 15px;">
+          <h4 style="font-size: 0.9rem; color: #154c79; margin-bottom: 6px;">حالة الاتصال والربط:</h4>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span id="gasStatusSpan" style="font-weight: bold; font-size: 0.85rem; color: #637b92;">لم يتم فحص الاتصال بعد</span>
+            <button type="button" class="btn-action btn-refresh" style="padding: 4px 10px; font-size: 0.8rem;" onclick="testGasConnection()">
+              <i class="fas fa-plug"></i>
+              <span>فحص الاتصال</span>
+            </button>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; border-top: 1px solid #e1ebf4; padding-top: 14px;">
+          <button type="button" class="btn-action btn-add" style="flex: 1;" onclick="pushAllToCloud()">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span>مزامنة كافة البيانات السابقة إلى Google Sheet</span>
+          </button>
+          <button type="button" class="btn-action btn-refresh" style="flex: 1;" onclick="pullAllFromCloud()">
+            <i class="fas fa-cloud-download-alt"></i>
+            <span>استيراد كافة البيانات من Google Sheet</span>
+          </button>
+        </div>
+
+        <div style="margin-top: 16px; border-top: 1px dashed #d1dde8; padding-top: 14px;">
+          <button type="button" class="btn-action btn-trash" onclick="resetToInitialData()">
+            <i class="fas fa-redo"></i>
+            <span>إعادة تعيين البيانات المبدئية (21 سجلاً)</span>
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-action btn-refresh" onclick="closeSettingsModal()">إلغاء</button>
+        <button type="button" class="btn-action btn-add" onclick="saveSettings()">
+          <i class="fas fa-check"></i>
+          <span>حفظ الإعدادات</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= Modal: المحفوظات مؤخراً (سلة المحذوفات) ================= -->
+  <div class="modal-overlay" id="trashModal">
+    <div class="modal-window" style="max-width: 800px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fas fa-trash-restore"></i>
+          <span>المحفوظات مؤخراً (سلة المحذوفات)</span>
+        </div>
+        <button class="modal-close" onclick="closeTrashModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: #5e7991; margin-bottom: 12px;">
+          يمكنك استعادة أي سجل تم حذفه سابقاً أو تفريغ السلة بالكامل.
+        </p>
+        <div class="table-responsive" style="max-height: 340px;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>القسم</th>
+                <th>التسلسل</th>
+                <th>رقم الكتاب</th>
+                <th>الجهة المرسلة</th>
+                <th>الموضوع</th>
+                <th>تاريخ الحذف</th>
+                <th>إجراء</th>
+              </tr>
+            </thead>
+            <tbody id="trashTableBody">
+              <!-- صفوف المحذوفات -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-action btn-delete" onclick="emptyTrash()">
+          <i class="fas fa-trash"></i>
+          <span>تفريغ السلة نهائياً</span>
+        </button>
+        <button type="button" class="btn-action btn-refresh" onclick="closeTrashModal()">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= Modal: التقارير والإحصائيات والطباعة ================= -->
+  <div class="modal-overlay" id="reportsModal">
+    <div class="modal-window" style="max-width: 750px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fas fa-chart-pie"></i>
+          <span>التقارير والإحصائيات الرسمية</span>
+        </div>
+        <button class="modal-close" onclick="closeReportsModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="printReportContent">
+        <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid #0a332d; padding-bottom: 10px;">
+          <h2 style="color: #0a332d; font-size: 1.3rem;">محافظة كربلاء المقدسة - ديوان المحافظة</h2>
+          <h3 style="color: #c89d53; font-size: 1.1rem;">تقرير المراسلات الإحصائي الشامل</h3>
+          <p style="font-size: 0.85rem; color: #5e7991;" id="reportDateStamp"></p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px;">
+          <div style="background: #f7fafc; padding: 14px; border-radius: 8px; border: 1px solid #dbe6f0;">
+            <h4 style="color: #1a4261; margin-bottom: 8px; font-size: 0.95rem;">توزيع المراسلات حسب الأقسام:</h4>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem;" id="reportSectionBreakdown">
+            </ul>
+          </div>
+
+          <div style="background: #f7fafc; padding: 14px; border-radius: 8px; border: 1px solid #dbe6f0;">
+            <h4 style="color: #1a4261; margin-bottom: 8px; font-size: 0.95rem;">موقف الأرشفة الإلكترونية:</h4>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem;" id="reportArchiveBreakdown">
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-action btn-add" onclick="window.print()">
+          <i class="fas fa-print"></i>
+          <span>طباعة التقرير</span>
+        </button>
+        <button type="button" class="btn-action btn-refresh" onclick="closeReportsModal()">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container للإشعارات السريعة -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- JavaScript Application Script -->
+  <script>
+const EMBEDDED_INITIAL_RECORDS = [
+  {
+    "id": 1,
+    "section": "الوارد",
+    "sequence_no": "1",
+    "entry_date": "2026-09-01 08:30",
+    "book_no": "و/101",
+    "book_date": "01/09/2026",
+    "sender": "مديرية تربية كربلاء",
+    "subject": "طلب معلومات عن المدارس المشمولة بالصيانة",
+    "archive": "مؤرشف",
+    "transfer": "إلى قسم المتابعة",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/الوارد.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 2,
+    "section": "الوارد",
+    "sequence_no": "2",
+    "entry_date": "2026-09-02 09:15",
+    "book_no": "و/118",
+    "book_date": "02/09/2026",
+    "sender": "دائرة صحة كربلاء",
+    "subject": "تزويدنا ببيان الخدمات الصحية",
+    "archive": "غير مؤرشف",
+    "transfer": "إلى الإدارة",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/الوارد.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 3,
+    "section": "الوارد",
+    "sequence_no": "3",
+    "entry_date": "2026-09-03 10:05",
+    "book_no": "و/127",
+    "book_date": "03/09/2026",
+    "sender": "بلدية كربلاء",
+    "subject": "تنسيق حملة خدمية مشتركة",
+    "archive": "مؤرشف",
+    "transfer": "إلى شعبة العلاقات",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/الوارد.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 4,
+    "section": "الوارد",
+    "sequence_no": "4",
+    "entry_date": "2026-09-04 11:20",
+    "book_no": "و/145",
+    "book_date": "04/09/2026",
+    "sender": "جامعة كربلاء",
+    "subject": "دعوة لحضور اجتماع تنسيقي",
+    "archive": "غير مؤرشف",
+    "transfer": "إلى المدير",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/الوارد.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 5,
+    "section": "الوارد",
+    "sequence_no": "5",
+    "entry_date": "2026-09-05 12:10",
+    "book_no": "و/156",
+    "book_date": "05/09/2026",
+    "sender": "دائرة الماء",
+    "subject": "متابعة مشروع تجهيز المياه",
+    "archive": "مؤرشف",
+    "transfer": "إلى القسم الفني",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/الوارد.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 6,
+    "section": "الصادر",
+    "sequence_no": "1",
+    "entry_date": "2026-09-01 08:45",
+    "book_no": "ص/201",
+    "book_date": "01/09/2026",
+    "sender": "قسم الإدارة",
+    "subject": "كتاب تأييد إداري",
+    "archive": "مؤرشف",
+    "transfer": "تمت الإحالة",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/الصادر.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 7,
+    "section": "الصادر",
+    "sequence_no": "2",
+    "entry_date": "2026-09-02 09:40",
+    "book_no": "ص/214",
+    "book_date": "02/09/2026",
+    "sender": "دائرة البلدية",
+    "subject": "إجابة على كتاب وارد",
+    "archive": "غير مؤرشف",
+    "transfer": "إلى الجهة المعنية",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/الصادر.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 8,
+    "section": "الصادر",
+    "sequence_no": "3",
+    "entry_date": "2026-09-03 10:30",
+    "book_no": "ص/229",
+    "book_date": "03/09/2026",
+    "sender": "مديرية التخطيط",
+    "subject": "إرسال البيانات الإحصائية",
+    "archive": "مؤرشف",
+    "transfer": "إلى قسم التخطيط",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/الصادر.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 9,
+    "section": "الصادر",
+    "sequence_no": "4",
+    "entry_date": "2026-09-04 11:05",
+    "book_no": "ص/240",
+    "book_date": "04/09/2026",
+    "sender": "جامعة كربلاء",
+    "subject": "تأكيد موعد الاجتماع",
+    "archive": "غير مؤرشف",
+    "transfer": "إلى العلاقات",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/الصادر.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 10,
+    "section": "الصادر",
+    "sequence_no": "5",
+    "entry_date": "2026-09-05 13:00",
+    "book_no": "ص/255",
+    "book_date": "05/09/2026",
+    "sender": "دائرة الكهرباء",
+    "subject": "متابعة إنارة الطرق",
+    "archive": "مؤرشف",
+    "transfer": "إلى الخدمات",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/الصادر.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 11,
+    "section": "بريد البلدية والبلديات",
+    "sequence_no": "1",
+    "entry_date": "2026-09-06 08:20",
+    "book_no": "ب/301",
+    "book_date": "06/09/2026",
+    "sender": "بلدية الهندية",
+    "subject": "طلب تقرير الأعمال المنجزة",
+    "archive": "مؤرشف",
+    "transfer": "إلى البلدية",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/بريد_البلدية_والبلديات.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 12,
+    "section": "بريد البلدية والبلديات",
+    "sequence_no": "2",
+    "entry_date": "2026-09-07 09:10",
+    "book_no": "ب/315",
+    "book_date": "07/09/2026",
+    "sender": "بلدية الحر",
+    "subject": "متابعة النظافة والخدمات",
+    "archive": "غير مؤرشف",
+    "transfer": "إلى المتابعة",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/بريد_البلدية_والبلديات.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 13,
+    "section": "بريد البلدية والبلديات",
+    "sequence_no": "3",
+    "entry_date": "2026-09-08 10:25",
+    "book_no": "ب/322",
+    "book_date": "08/09/2026",
+    "sender": "بلدية الجدول الغربي",
+    "subject": "خطة المشاريع الخدمية",
+    "archive": "مؤرشف",
+    "transfer": "إلى التخطيط",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/بريد_البلدية_والبلديات.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 14,
+    "section": "بريد البلدية والبلديات",
+    "sequence_no": "4",
+    "entry_date": "2026-09-09 11:45",
+    "book_no": "ب/337",
+    "book_date": "09/09/2026",
+    "sender": "بلدية عين التمر",
+    "subject": "تحديث بيانات المشاريع",
+    "archive": "غير مؤرشف",
+    "transfer": "إلى القسم الفني",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/بريد_البلدية_والبلديات.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 15,
+    "section": "بريد البلدية والبلديات",
+    "sequence_no": "5",
+    "entry_date": "2026-09-10 12:35",
+    "book_no": "ب/349",
+    "book_date": "10/09/2026",
+    "sender": "بلدية الحسينية",
+    "subject": "تنسيق أعمال الصيانة",
+    "archive": "مؤرشف",
+    "transfer": "إلى الخدمات",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/بريد_البلدية_والبلديات.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 16,
+    "section": "بريد المحافظ",
+    "sequence_no": "1",
+    "entry_date": "2026-09-06 08:50",
+    "book_no": "م/401",
+    "book_date": "06/09/2026",
+    "sender": "مكتب المحافظ",
+    "subject": "متابعة مشروع خدمي",
+    "archive": "مؤرشف",
+    "transfer": "إلى الإدارة",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/بريد_المحافظ.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 17,
+    "section": "بريد المحافظ",
+    "sequence_no": "2",
+    "entry_date": "2026-09-07 09:35",
+    "book_no": "م/414",
+    "book_date": "07/09/2026",
+    "sender": "مكتب المحافظ",
+    "subject": "طلب موقف إنجاز المشاريع",
+    "archive": "غير مؤرشف",
+    "transfer": "إلى التخطيط",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/بريد_المحافظ.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 18,
+    "section": "بريد المحافظ",
+    "sequence_no": "3",
+    "entry_date": "2026-09-08 10:15",
+    "book_no": "م/428",
+    "book_date": "08/09/2026",
+    "sender": "مكتب المحافظ",
+    "subject": "تنسيق اجتماع مع الدوائر",
+    "archive": "مؤرشف",
+    "transfer": "إلى العلاقات",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/بريد_المحافظ.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 19,
+    "section": "بريد المحافظ",
+    "sequence_no": "4",
+    "entry_date": "2026-09-09 11:00",
+    "book_no": "م/435",
+    "book_date": "09/09/2026",
+    "sender": "مكتب المحافظ",
+    "subject": "متابعة التوصيات الإدارية",
+    "archive": "غير مؤرشف",
+    "transfer": "إلى المتابعة",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/بريد_المحافظ.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 20,
+    "section": "بريد المحافظ",
+    "sequence_no": "5",
+    "entry_date": "2026-09-10 12:20",
+    "book_no": "م/447",
+    "book_date": "10/09/2026",
+    "sender": "مكتب المحافظ",
+    "subject": "تقرير الخدمات الأسبوعي",
+    "archive": "مؤرشف",
+    "transfer": "إلى الإدارة",
+    "notes": "بيانات تجريبية",
+    "updated_at": "2026-09-19 12:49",
+    "source_excel": "/mnt/data/v21work/templates/بريد_المحافظ.xlsx",
+    "source_row": null
+  },
+  {
+    "id": 21,
+    "section": "الوارد",
+    "sequence_no": "7",
+    "entry_date": "2026-09-19 14:00",
+    "book_no": "TEST/7",
+    "book_date": "19/09/2026",
+    "sender": "جهة اختبار",
+    "subject": "اختبار صف التسلسل",
+    "archive": "مؤرشف",
+    "transfer": "إلى الاختبار",
+    "notes": "اختبار",
+    "updated_at": "2026-09-19 14:00",
+    "source_excel": "/tmp/v23/templates/الوارد.xlsx",
+    "source_row": null
+  }
+];
+
+/**
+ * نظام إدارة المراسلات - Modern RTL Web Application Engine (v32 Web)
+ * كود الجافاسكربت لإدارة العمليات، الواجهة، LocalStorage، وتكامل Google Apps Script & Sheets
+ */
+
+// الثوابت والأقسام
+const SECTIONS = ["الوارد", "الصادر", "بريد البلدية والبلديات", "بريد المحافظ"];
+const STORAGE_KEY = "karbala_correspondence_records_v32";
+const TRASH_STORAGE_KEY = "karbala_correspondence_trash_v32";
+const SETTINGS_KEY = "karbala_correspondence_settings_v32";
+
+// حالة التطبيق (State)
+let appState = {
+  records: [],
+  trash: [],
+  selectedSection: "all",
+  selectedRecordId: null,
+  currentPage: 1,
+  pageSize: 5,
+  searchQuery: "",
+  tableFilterQuery: "",
+  settings: {
+    gasUrl: "",
+    storageMode: "hybrid" // 'hybrid', 'cloud_only', 'local_only'
+  },
+  currentAttachment: {
+    fileName: "",
+    fileData: "",
+    fileUrl: ""
+  }
+};
+
+// الأيام بالعربية
+const AR_WEEKDAYS = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"];
+
+/**
+ * بدء تشغيل التطبيق عند تحميل الصفحة
+ */
+document.addEventListener("DOMContentLoaded", async () => {
+  initLiveClock();
+  loadSettings();
+  await loadRecords();
+  initFormDefaultDate();
+  updateStatsAndBadges();
+  renderTable();
+  updateSequenceHint();
+
+  // فحص الاتصال التلقائي بـ Google Apps Script إذا كان الرابط موجوداً
+  if (appState.settings.gasUrl) {
+    checkGasStatusSilent();
+  }
+});
+
+/**
+ * الساعة والتاريخ الحي في الهيدر
+ */
+function initLiveClock() {
+  const updateTime = () => {
+    const now = new Date();
+    const dayName = AR_WEEKDAYS[now.getDay()];
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'م' : 'ص';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+
+    const dateElem = document.getElementById("currentDateDisplay");
+    const timeElem = document.getElementById("currentTimeDisplay");
+    if (dateElem) dateElem.innerText = `${dayName} ${yyyy}/${mm}/${dd}`;
+    if (timeElem) timeElem.innerText = `${hours}:${minutes} ${ampm}`;
+  };
+
+  updateTime();
+  setInterval(updateTime, 1000);
+}
+
+/**
+ * تاريخ إدخال المعلومات الافتراضي
+ */
+function initFormDefaultDate() {
+  const entryDateInput = document.getElementById("field-entry_date");
+  if (entryDateInput && !entryDateInput.value) {
+    const now = new Date();
+    const dayName = AR_WEEKDAYS[now.getDay()];
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'م' : 'ص';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    entryDateInput.value = `${dayName} ${yyyy}/${mm}/${dd} ${hours}:${minutes} ${ampm}`;
+  }
+
+  // تاريخ الكتاب افتراضياً اليوم
+  const bookDateInput = document.getElementById("field-book_date");
+  if (bookDateInput && !bookDateInput.value) {
+    const today = new Date().toISOString().split('T')[0];
+    bookDateInput.value = today;
+  }
+}
+
+/**
+ * تحميل الإعدادات من LocalStorage
+ */
+function loadSettings() {
+  try {
+    const saved = localStorage.getItem(SETTINGS_KEY);
+    if (saved) {
+      appState.settings = JSON.parse(saved);
+      const urlInput = document.getElementById("setting-script-url");
+      const modeSelect = document.getElementById("setting-storage-mode");
+      if (urlInput) urlInput.value = appState.settings.gasUrl || "";
+      if (modeSelect) modeSelect.value = appState.settings.storageMode || "hybrid";
+    }
+  } catch (e) {
+    console.error("Error loading settings:", e);
+  }
+}
+
+/**
+ * حفظ الإعدادات
+ */
+function saveSettings() {
+  const urlInput = document.getElementById("setting-script-url");
+  const modeSelect = document.getElementById("setting-storage-mode");
+  appState.settings.gasUrl = (urlInput ? urlInput.value.trim() : "");
+  appState.settings.storageMode = (modeSelect ? modeSelect.value : "hybrid");
+
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(appState.settings));
+  showToast("تم حفظ الإعدادات بنجاح", "success");
+  closeSettingsModal();
+
+  if (appState.settings.gasUrl) {
+    testGasConnection();
+  }
+}
+
+/**
+ * تحميل السجلات (من LocalStorage أو الملف المبدئي initial_data.json)
+ */
+async function loadRecords() {
+  try {
+    const local = localStorage.getItem(STORAGE_KEY);
+    const localTrash = localStorage.getItem(TRASH_STORAGE_KEY);
+    
+    if (localTrash) {
+      appState.trash = JSON.parse(localTrash);
+    }
+
+    if (local) {
+      appState.records = JSON.parse(local);
+    } else {
+      // قراءة البيانات التجريبية الـ 21 لأول مرة
+      appState.records = JSON.parse(JSON.stringify(EMBEDDED_INITIAL_RECORDS));
+      saveLocalRecords();
+    }
+  } catch (e) {
+    console.error("Failed to load records:", e);
+    appState.records = [];
+  }
+}
+
+function saveLocalRecords() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(appState.records));
+  localStorage.setItem(TRASH_STORAGE_KEY, JSON.stringify(appState.trash));
+}
+
+/**
+ * تحديث الإحصائيات وبادجات القائمة الجانبية
+ */
+function updateStatsAndBadges() {
+  const total = appState.records.length;
+  const inCount = appState.records.filter(r => r.section === "الوارد").length;
+  const outCount = appState.records.filter(r => r.section === "الصادر").length;
+  const munCount = appState.records.filter(r => r.section === "بريد البلدية والبلديات").length;
+  const govCount = appState.records.filter(r => r.section === "بريد المحافظ").length;
+  const arcCount = appState.records.filter(r => r.archive === "مؤرشف").length;
+  const trashCount = appState.trash.length;
+
+  // البطاقات
+  setText("stat-total", total);
+  setText("stat-inward", inCount);
+  setText("stat-outward", outCount);
+  setText("stat-municipal", munCount);
+  setText("stat-governor", govCount);
+  setText("stat-archived", arcCount);
+
+  // شارات السايدبار
+  setText("badge-all", total);
+  setText("badge-الوارد", inCount);
+  setText("badge-الصادر", outCount);
+  setText("badge-بريد البلدية والبلديات", munCount);
+  setText("badge-بريد المحافظ", govCount);
+  setText("badge-archived", arcCount);
+  setText("badge-trash", trashCount);
+}
+
+function setText(id, val) {
+  const elem = document.getElementById(id);
+  if (elem) elem.innerText = val;
+}
+
+/**
+ * اختيار قسم من القائمة الجانبية
+ */
+function selectSection(secName, clickedItem) {
+  appState.selectedSection = secName;
+  appState.currentPage = 1;
+
+  // تحديث تمييز القائمة الجانبية
+  document.querySelectorAll(".sidebar-item").forEach(item => item.classList.remove("active"));
+  if (clickedItem) {
+    clickedItem.classList.add("active");
+  } else {
+    const target = document.querySelector(`.sidebar-item[data-section="${secName}"]`);
+    if (target) target.classList.add("active");
+  }
+
+  // تحديث العنوان الفرعي ونموذج الإدخال إذا كان محدداً
+  const formSec = document.getElementById("field-section");
+  if (secName !== "all" && formSec) {
+    formSec.value = secName;
+    onSectionFormChange();
+  }
+
+  const subHeader = document.getElementById("tableSubHeader");
+  if (subHeader) {
+    subHeader.innerText = secName === "all" ? "عرض جميع المراسلات" : `عرض مراسلات: ${secName}`;
+  }
+
+  renderTable();
+}
+
+/**
+ * تصفية الأرشيف فقط
+ */
+function filterArchivedOnly() {
+  appState.selectedSection = "archived_only";
+  appState.currentPage = 1;
+  document.querySelectorAll(".sidebar-item").forEach(item => item.classList.remove("active"));
+  const subHeader = document.getElementById("tableSubHeader");
+  if (subHeader) subHeader.innerText = "عرض المراسلات المؤرشفة فقط";
+  renderTable();
+}
+
+/**
+ * تصفية وعرض السجلات في الجدول مع ترقيم الصفحات
+ */
+function getFilteredRecords() {
+  let list = [...appState.records];
+
+  // تصفية حسب القسم
+  if (appState.selectedSection === "archived_only") {
+    list = list.filter(r => r.archive === "مؤرشف");
+  } else if (appState.selectedSection !== "all") {
+    list = list.filter(r => r.section === appState.selectedSection);
+  }
+
+  // تصفية بالبحث العلوي العام
+  const q = normalizeString(appState.searchQuery);
+  if (q) {
+    list = list.filter(r => {
+      return normalizeString(r.sequence_no).includes(q) ||
+             normalizeString(r.book_no).includes(q) ||
+             normalizeString(r.sender).includes(q) ||
+             normalizeString(r.subject).includes(q) ||
+             normalizeString(r.transfer).includes(q) ||
+             normalizeString(r.notes).includes(q);
+    });
+  }
+
+  // تصفية ببحث الجدول السريع
+  const tq = normalizeString(appState.tableFilterQuery);
+  if (tq) {
+    list = list.filter(r => {
+      return normalizeString(r.sequence_no).includes(tq) ||
+             normalizeString(r.book_no).includes(tq) ||
+             normalizeString(r.sender).includes(tq) ||
+             normalizeString(r.subject).includes(tq);
+    });
+  }
+
+  // فرز حسب التسلسل تصاعدياً
+  list.sort((a, b) => {
+    const numA = parseInt(a.sequence_no, 10);
+    const numB = parseInt(b.sequence_no, 10);
+    if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
+    return (a.id || 0) - (b.id || 0);
+  });
+
+  return list;
+}
+
+function renderTable() {
+  const filtered = getFilteredRecords();
+  const total = filtered.length;
+  const pages = Math.max(1, Math.ceil(total / appState.pageSize));
+  appState.currentPage = Math.min(Math.max(1, appState.currentPage), pages);
+
+  const start = (appState.currentPage - 1) * appState.pageSize;
+  const pageRows = filtered.slice(start, start + appState.pageSize);
+
+  const tbody = document.getElementById("recordsTableBody");
+  tbody.innerHTML = "";
+
+  if (pageRows.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="11" style="text-align: center; padding: 24px; color: #71879a;">لا توجد مراسلات مطابقة في هذا العرض</td></tr>`;
+  } else {
+    pageRows.forEach(r => {
+      const tr = document.createElement("tr");
+      tr.dataset.id = r.id;
+      if (appState.selectedRecordId === r.id) {
+        tr.classList.add("selected");
+      }
+
+      tr.onclick = () => selectRecordForEdit(r.id);
+
+      const isArchived = (r.archive === "مؤرشف");
+      const archiveBadge = `<span class="tag-archive ${isArchived ? 'yes' : 'no'}">${isArchived ? 'مؤرشف' : 'غير مؤرشف'}</span>`;
+
+      const attachmentLink = r.attachment_url 
+        ? `<a href="${r.attachment_url}" target="_blank" onclick="event.stopPropagation();" title="فتح المرفق"><i class="fas fa-file-pdf" style="color: #d93025; font-size: 1.1rem;"></i></a>`
+        : `<span style="color:#b0c2d4;">-</span>`;
+
+      tr.innerHTML = `
+        <td><strong>${escapeHtml(r.sequence_no || '')}</strong></td>
+        <td><span style="font-size: 0.8rem; background: #eaf2fd; padding: 2px 6px; border-radius: 4px; font-weight: 700;">${escapeHtml(r.section || '')}</span></td>
+        <td>${escapeHtml(formatDateShow(r.entry_date))}</td>
+        <td><strong>${escapeHtml(r.book_no || '')}</strong></td>
+        <td>${escapeHtml(r.book_date || '')}</td>
+        <td>${escapeHtml(r.sender || '')}</td>
+        <td>${escapeHtml(r.subject || '')}</td>
+        <td>${escapeHtml(r.transfer || '')}</td>
+        <td>${archiveBadge}</td>
+        <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">${escapeHtml(r.notes || '')}</td>
+        <td style="text-align: center;">${attachmentLink}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // تحديث شريط الترقيم
+  const shownStart = total === 0 ? 0 : start + 1;
+  const shownEnd = Math.min(start + appState.pageSize, total);
+  setText("paginationInfo", `عرض ${shownStart} - ${shownEnd} من إجمالي ${total} سجل`);
+
+  renderPaginationControls(pages);
+}
+
+function renderPaginationControls(pages) {
+  const container = document.getElementById("paginationControls");
+  container.innerHTML = "";
+
+  // زر السابق
+  const prevBtn = document.createElement("button");
+  prevBtn.className = "btn-page";
+  prevBtn.innerHTML = "‹";
+  prevBtn.disabled = appState.currentPage <= 1;
+  prevBtn.onclick = () => { appState.currentPage--; renderTable(); };
+  container.appendChild(prevBtn);
+
+  // أرقام الصفحات
+  for (let i = 1; i <= pages; i++) {
+    if (pages > 7 && Math.abs(i - appState.currentPage) > 2 && i !== 1 && i !== pages) {
+      if (i === 2 || i === pages - 1) {
+        const dot = document.createElement("span");
+        dot.innerText = "...";
+        dot.style.padding = "0 4px";
+        container.appendChild(dot);
+      }
+      continue;
+    }
+    const pageBtn = document.createElement("button");
+    pageBtn.className = `btn-page ${i === appState.currentPage ? 'active' : ''}`;
+    pageBtn.innerText = i;
+    pageBtn.onclick = () => { appState.currentPage = i; renderTable(); };
+    container.appendChild(pageBtn);
+  }
+
+  // زر التالي
+  const nextBtn = document.createElement("button");
+  nextBtn.className = "btn-page";
+  nextBtn.innerHTML = "›";
+  nextBtn.disabled = appState.currentPage >= pages;
+  nextBtn.onclick = () => { appState.currentPage++; renderTable(); };
+  container.appendChild(nextBtn);
+}
+
+/**
+ * تحديد سجل من الجدول لملء النموذج
+ */
+function selectRecordForEdit(id) {
+  appState.selectedRecordId = id;
+  const r = appState.records.find(item => item.id == id);
+  if (!r) return;
+
+  // إبراز الصف المحدد
+  document.querySelectorAll("#recordsTableBody tr").forEach(tr => {
+    tr.classList.toggle("selected", tr.dataset.id == id);
+  });
+
+  // ملء الحقول
+  document.getElementById("field-id").value = r.id;
+  document.getElementById("field-section").value = r.section;
+  document.getElementById("field-sequence_no").value = r.sequence_no || "";
+  document.getElementById("field-entry_date").value = formatDateShow(r.entry_date);
+  document.getElementById("field-book_no").value = r.book_no || "";
+  document.getElementById("field-book_date").value = normalizeInputDate(r.book_date);
+  document.getElementById("field-sender").value = r.sender || "";
+  document.getElementById("field-subject").value = r.subject || "";
+  document.getElementById("field-transfer").value = r.transfer || "";
+  document.getElementById("field-notes").value = r.notes || "";
+
+  if (r.archive === "مؤرشف") {
+    document.getElementById("archive-yes").checked = true;
+  } else {
+    document.getElementById("archive-no").checked = true;
+  }
+
+  // المرفق
+  const attText = document.getElementById("attachmentText");
+  const attUrlWrap = document.getElementById("attachmentUrlWrap");
+  const viewAttBtn = document.getElementById("viewAttachmentBtn");
+
+  if (r.attachment_url) {
+    attText.innerText = "مرفق مرتبط";
+    attUrlWrap.style.display = "block";
+    viewAttBtn.href = r.attachment_url;
+  } else {
+    attText.innerText = "لا يوجد مرفق";
+    attUrlWrap.style.display = "none";
+  }
+
+  onSectionFormChange(false);
+  updateSequenceHint();
+}
+
+/**
+ * تفريغ النموذج لإدخال جديد
+ */
+function handleAddNew() {
+  appState.selectedRecordId = null;
+  document.getElementById("recordForm").reset();
+  document.getElementById("field-id").value = "";
+  document.getElementById("archive-no").checked = true;
+  
+  // إعادة تعيين المرفق
+  appState.currentAttachment = { fileName: "", fileData: "", fileUrl: "" };
+  document.getElementById("attachmentText").innerText = "لا يوجد مرفق";
+  document.getElementById("attachmentUrlWrap").style.display = "none";
+
+  initFormDefaultDate();
+  
+  if (appState.selectedSection !== "all" && appState.selectedSection !== "archived_only") {
+    document.getElementById("field-section").value = appState.selectedSection;
+  }
+  
+  // اقتراح التسلسل التلقائي
+  suggestNextSequence();
+  onSectionFormChange();
+  
+  document.querySelectorAll("#recordsTableBody tr").forEach(tr => tr.classList.remove("selected"));
+  showToast("تم تهيئة النموذج لإدخال جديد", "info");
+}
+
+/**
+ * حفظ المراسلة (إضافة جديدة أو تعديل سجل حالي)
+ */
+async function handleSave() {
+  const idVal = document.getElementById("field-id").value;
+  const section = document.getElementById("field-section").value;
+  const sequence_no = document.getElementById("field-sequence_no").value.trim();
+  const entry_date = document.getElementById("field-entry_date").value.trim();
+  const book_no = document.getElementById("field-book_no").value.trim();
+  const book_date = document.getElementById("field-book_date").value.trim();
+  const sender = document.getElementById("field-sender").value.trim();
+  const subject = document.getElementById("field-subject").value.trim();
+  const transfer = document.getElementById("field-transfer").value.trim();
+  const archive = document.getElementById("archive-yes").checked ? "مؤرشف" : "غير مؤرشف";
+  const notes = document.getElementById("field-notes").value.trim();
+
+  // التحقق من الحقول الإجبارية
+  if (!book_no || !book_date || !sender || !subject) {
+    alert("يرجى ملء الحقول الإجبارية المطلوبة: رقم الكتاب، تاريخ الكتاب، الجهة المرسلة، والموضوع.");
+    return;
+  }
+
+  // التحقق من تكرار التسلسل في نفس القسم
+  const existingWithSeq = appState.records.find(r => 
+    r.section === section && 
+    String(r.sequence_no).trim() === sequence_no && 
+    (!idVal || r.id != idVal)
+  );
+
+  if (existingWithSeq) {
+    alert(`تنبيه: التسلسل (${sequence_no}) مستخدم بالفعل في قسم (${section}). يرجى اختيار تسلسل آخر.`);
+    return;
+  }
+
+  let finalAttachmentUrl = "";
+  if (appState.currentAttachment.fileUrl) {
+    finalAttachmentUrl = appState.currentAttachment.fileUrl;
+  } else if (idVal) {
+    const existing = appState.records.find(r => r.id == idVal);
+    if (existing) finalAttachmentUrl = existing.attachment_url || "";
+  }
+
+  // إذا تم رفع ملف محلي وهناك اتصال بـ Google Apps Script، نرفعه إلى Google Drive
+  if (appState.currentAttachment.fileData && appState.settings.gasUrl) {
+    showToast("جاري رفع المرفق إلى Google Drive...", "info");
+    try {
+      const uploadResp = await callGasApi("uploadFile", {
+        fileName: appState.currentAttachment.fileName,
+        base64Data: appState.currentAttachment.fileData,
+        bookNo: book_no
+      });
+      if (uploadResp && uploadResp.status === "success") {
+        finalAttachmentUrl = uploadResp.url;
+        showToast("تم رفع المرفق إلى Google Drive بنجاح", "success");
+      }
+    } catch (e) {
+      console.warn("Upload to Drive failed, proceeding with record:", e);
+    }
+  }
+
+  const recordData = {
+    id: idVal ? parseInt(idVal, 10) || idVal : Date.now(),
+    section: section,
+    sequence_no: sequence_no || String(getNextSequenceNumber(section)),
+    entry_date: entry_date,
+    book_no: book_no,
+    book_date: book_date,
+    sender: sender,
+    subject: subject,
+    transfer: transfer,
+    archive: archive,
+    notes: notes,
+    updated_at: new Date().toISOString().replace('T', ' ').substring(0, 16),
+    attachment_url: finalAttachmentUrl
+  };
+
+  if (idVal) {
+    // تعديل
+    const idx = appState.records.findIndex(r => r.id == idVal);
+    if (idx !== -1) {
+      appState.records[idx] = recordData;
+      showToast("تم حفظ التعديلات بنجاح", "success");
+    }
+  } else {
+    // إضافة
+    appState.records.push(recordData);
+    showToast("تمت إضافة المراسلة بنجاح", "success");
+  }
+
+  saveLocalRecords();
+  updateStatsAndBadges();
+  renderTable();
+
+  // إرسال التحديث لـ Google Apps Script في الخلفية إذا كان مفعلاً
+  if (appState.settings.gasUrl && appState.settings.storageMode !== "local_only") {
+    syncSingleRecordToGas(recordData, idVal ? "update" : "add");
+  }
+
+  handleAddNew();
+}
+
+/**
+ * زر تعديل السجل المحدد
+ */
+function handleEditSelected() {
+  if (!appState.selectedRecordId) {
+    showToast("يرجى اختيار سجل من الجدول أولاً لتعديله", "info");
+    return;
+  }
+  document.getElementById("field-book_no").focus();
+}
+
+/**
+ * حذف السجل المحدد ونقله إلى سلة المحذوفات
+ */
+function handleDeleteSelected() {
+  const rid = appState.selectedRecordId || document.getElementById("field-id").value;
+  if (!rid) {
+    showToast("يرجى تحديد سجل من الجدول أولاً لحذفه", "info");
+    return;
+  }
+
+  const target = appState.records.find(r => r.id == rid);
+  if (!target) return;
+
+  if (confirm(`هل أنت متأكد من حذف المراسلة رقم (${target.book_no}) ونقلها إلى سلة المحذوفات؟`)) {
+    // نقل للمحذوفات
+    appState.trash.push({
+      ...target,
+      deleted_at: new Date().toISOString().replace('T', ' ').substring(0, 16)
+    });
+
+    // حذف من القائمة
+    appState.records = appState.records.filter(r => r.id != rid);
+
+    saveLocalRecords();
+    updateStatsAndBadges();
+    handleAddNew();
+    renderTable();
+    showToast("تم نقل المراسلة إلى المحفوظات مؤخراً", "success");
+
+    // إشعار Google Apps Script
+    if (appState.settings.gasUrl && appState.settings.storageMode !== "local_only") {
+      callGasApi("delete", { id: target.id, section: target.section });
+    }
+  }
+}
+
+/**
+ * حساب واقتراح التسلسل التالي للقسم
+ */
+function getNextSequenceNumber(sec) {
+  const secRecords = appState.records.filter(r => r.section === sec);
+  let maxSeq = 0;
+  secRecords.forEach(r => {
+    const n = parseInt(String(r.sequence_no).replace(/[^0-9]/g, ""), 10);
+    if (!isNaN(n) && n > maxSeq) maxSeq = n;
+  });
+  return maxSeq + 1;
+}
+
+function suggestNextSequence() {
+  const sec = document.getElementById("field-section").value;
+  const next = getNextSequenceNumber(sec);
+  document.getElementById("field-sequence_no").value = next;
+  updateSequenceHint();
+}
+
+function updateSequenceHint() {
+  const sec = document.getElementById("field-section").value;
+  const currentVal = document.getElementById("field-sequence_no").value;
+  const next = getNextSequenceNumber(sec);
+  const hintElem = document.getElementById("sequenceHint");
+  if (hintElem) {
+    hintElem.innerText = `التالي المقترح في قسم (${sec}): ${next}`;
+  }
+}
+
+function onSectionFormChange(autoSuggest = true) {
+  const sec = document.getElementById("field-section").value;
+  const formSecTitle = document.getElementById("formSectionTitle");
+  if (formSecTitle) formSecTitle.innerText = `القسم الحالي: ${sec}`;
+  if (autoSuggest && !appState.selectedRecordId) {
+    suggestNextSequence();
+  } else {
+    updateSequenceHint();
+  }
+}
+
+/**
+ * معالجة البحث العلوي والجدول
+ */
+function handleSearch() {
+  appState.searchQuery = document.getElementById("globalSearchInput").value;
+  appState.currentPage = 1;
+  renderTable();
+}
+
+function handleTableFilter() {
+  appState.tableFilterQuery = document.getElementById("tableFilterInput").value;
+  appState.currentPage = 1;
+  renderTable();
+}
+
+function changePageSize(val) {
+  appState.pageSize = parseInt(val, 10);
+  appState.currentPage = 1;
+  renderTable();
+}
+
+/**
+ * معالجة رفع وتحديد الملفات
+ */
+function triggerFileInput() {
+  document.getElementById("fileInput").click();
+}
+
+function handleFileSelected(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  appState.currentAttachment.fileName = file.name;
+  document.getElementById("attachmentText").innerText = file.name;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    appState.currentAttachment.fileData = e.target.result;
+    showToast(`تم إرفاق الملف: ${file.name}`, "info");
+  };
+  reader.readAsDataURL(file);
+}
+
+/**
+ * تصدير البيانات إلى Excel (قالب موحد لكافة الأقسام)
+ */
+function exportToExcel() {
+  if (typeof XLSX === "undefined") {
+    alert("مكتبة Excel قيد التحميل، يرجى المحاولة بعد قليل.");
+    return;
+  }
+
+  const wb = XLSX.utils.book_new();
+
+  // إنشاء شيت لكل قسم
+  SECTIONS.forEach(secName => {
+    const secRows = appState.records.filter(r => r.section === secName);
+    const exportData = secRows.map(r => ({
+      "التسلسل": r.sequence_no,
+      "تاريخ إدخال المعلومات": r.entry_date,
+      "رقم الكتاب": r.book_no,
+      "تاريخ الكتاب": r.book_date,
+      "الجهة المرسلة": r.sender,
+      "الموضوع": r.subject,
+      "التحويل": r.transfer,
+      "الأرشفة": r.archive,
+      "الملاحظات": r.notes,
+      "رابط المرفق": r.attachment_url || ""
+    }));
+
+    const ws = XLSX.utils.json_to_sheet(exportData);
+    XLSX.utils.book_append_sheet(wb, ws, secName);
+  });
+
+  // شيت إجمالي المراسلات
+  const allData = appState.records.map(r => ({
+    "القسم": r.section,
+    "التسلسل": r.sequence_no,
+    "تاريخ إدخال المعلومات": r.entry_date,
+    "رقم الكتاب": r.book_no,
+    "تاريخ الكتاب": r.book_date,
+    "الجهة المرسلة": r.sender,
+    "الموضوع": r.subject,
+    "التحويل": r.transfer,
+    "الأرشفة": r.archive,
+    "الملاحظات": r.notes
+  }));
+  const wsAll = XLSX.utils.json_to_sheet(allData);
+  XLSX.utils.book_append_sheet(wb, wsAll, "كافة المراسلات");
+
+  const fileName = `سجل_المراسلات_الموحد_${new Date().toISOString().slice(0, 10)}.xlsx`;
+  XLSX.writeFile(wb, fileName);
+  showToast("تم تصدير ملف Excel الموحد بنجاح", "success");
+}
+
+/**
+ * التعامل مع Google Apps Script API
+ */
+async function callGasApi(action, payload = {}) {
+  const url = appState.settings.gasUrl;
+  if (!url) return null;
+
+  try {
+    const resp = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ action: action, ...payload })
+    });
+    return await resp.json();
+  } catch (err) {
+    console.error("GAS API Error:", err);
+    return null;
+  }
+}
+
+async function syncSingleRecordToGas(record, mode) {
+  const res = await callGasApi(mode, { record: record });
+  if (res && res.status === "success") {
+    console.log("Synced to cloud:", record.book_no);
+  }
+}
+
+async function testGasConnection() {
+  const url = document.getElementById("setting-script-url").value.trim() || appState.settings.gasUrl;
+  const statusSpan = document.getElementById("gasStatusSpan");
+  if (!url) {
+    if (statusSpan) statusSpan.innerText = "يرجى إدخال رابط Google Apps Script أولاً";
+    return;
+  }
+
+  if (statusSpan) statusSpan.innerText = "جاري فحص الاتصال...";
+  try {
+    const resp = await fetch(`${url}?action=ping`);
+    const data = await resp.json();
+    if (data && data.status === "success") {
+      if (statusSpan) {
+        statusSpan.innerText = "✅ متصل بنجاح مع Google Apps Script!";
+        statusSpan.style.color = "#107c41";
+      }
+      setConnectionStatus(true);
+      showToast("الاتصال مع Google Apps Script ممتاز", "success");
+    } else {
+      throw new Error(data.message || "استجابة غير صحيحة");
+    }
+  } catch (err) {
+    if (statusSpan) {
+      statusSpan.innerText = "❌ تعذر الاتصال: تأكد من نشر السكربت وصلاحية الوصول (Anyone).";
+      statusSpan.style.color = "#d93025";
+    }
+    setConnectionStatus(false);
+  }
+}
+
+async function checkGasStatusSilent() {
+  try {
+    const resp = await fetch(`${appState.settings.gasUrl}?action=ping`);
+    const data = await resp.json();
+    setConnectionStatus(data && data.status === "success");
+  } catch (e) {
+    setConnectionStatus(false);
+  }
+}
+
+function setConnectionStatus(isOnline) {
+  const dot = document.getElementById("connectionStatusDot");
+  const txt = document.getElementById("connectionStatusText");
+  if (!dot || !txt) return;
+
+  if (isOnline) {
+    dot.className = "status-dot";
+    txt.innerText = "النظام متصل سحابياً مع Google Sheets و Google Drive";
+  } else {
+    dot.className = "status-dot offline";
+    txt.innerText = "النظام يعمل محلياً (وضع عدم الاتصال / Local Storage)";
+  }
+}
+
+/**
+ * مزامنة كاملة لجميع السجلات من الويب إلى الشيت
+ */
+async function pushAllToCloud() {
+  if (!confirm("هل تريد رفع ومزامنة جميع السجلات الحالية إلى Google Sheet؟")) return;
+  showToast("جاري مزامنة البيانات مع Google Sheet...", "info");
+  const res = await callGasApi("syncAll", { records: appState.records });
+  if (res && res.status === "success") {
+    showToast(`تمت مزامنة (${res.count}) سجلاً مع Google Sheet بنجاح!`, "success");
+  } else {
+    showToast("حدث خطأ أثناء المزامنة، تحقق من إعدادات الربط", "error");
+  }
+}
+
+/**
+ * سحب البيانات بالكامل من Google Sheet إلى المتصفح
+ */
+async function pullAllFromCloud() {
+  if (!confirm("هل تريد جلب كافة السجلات من Google Sheet واستبدال البيانات المحلية بها؟")) return;
+  const url = appState.settings.gasUrl;
+  if (!url) {
+    alert("يرجى إدخال رابط Google Apps Script أولاً");
+    return;
+  }
+
+  showToast("جاري جلب البيانات من Google Sheet...", "info");
+  try {
+    const resp = await fetch(`${url}?action=getAll`);
+    const data = await resp.json();
+    if (data && data.status === "success" && Array.isArray(data.records)) {
+      appState.records = data.records;
+      saveLocalRecords();
+      updateStatsAndBadges();
+      renderTable();
+      showToast(`تم استيراد (${data.records.length}) سجلاً من Google Sheet بنجاح!`, "success");
+    } else {
+      throw new Error(data.message || "بيانات غير متوفرة");
+    }
+  } catch (err) {
+    showToast("تعذر جلب البيانات من Google Sheet: " + err.message, "error");
+  }
+}
+
+/**
+ * استعادة البيانات التجريبية المبدئية
+ */
+async function resetToInitialData() {
+  if (confirm("هل تريد استعادة البيانات التجريبية المبدئية (21 سجلاً)؟")) {
+    try {
+      appState.records = JSON.parse(JSON.stringify(EMBEDDED_INITIAL_RECORDS));
+    appState.trash = [];
+    saveLocalRecords();
+    updateStatsAndBadges();
+    renderTable();
+    handleAddNew();
+    showToast("تمت استعادة البيانات التجريبية بنجاح", "success");
+    closeSettingsModal();
+    } catch (e) {
+      alert("تعذر قراءة ملف initial_data.json");
+    }
+  }
+}
+
+/**
+ * إدارة سلة المحذوفات
+ */
+function openTrashModal() {
+  const tbody = document.getElementById("trashTableBody");
+  tbody.innerHTML = "";
+
+  if (appState.trash.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 20px; color: #71879a;">سلة المحذوفات فارغة</td></tr>`;
+  } else {
+    appState.trash.forEach((r, idx) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${escapeHtml(r.section)}</td>
+        <td>${escapeHtml(r.sequence_no)}</td>
+        <td>${escapeHtml(r.book_no)}</td>
+        <td>${escapeHtml(r.sender)}</td>
+        <td>${escapeHtml(r.subject)}</td>
+        <td>${escapeHtml(r.deleted_at || '')}</td>
+        <td>
+          <button class="btn-action btn-add" style="padding: 2px 8px; font-size: 0.75rem;" onclick="restoreRecord(${idx})">
+            استعادة
+          </button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  document.getElementById("trashModal").classList.add("active");
+}
+
+function closeTrashModal() {
+  document.getElementById("trashModal").classList.remove("active");
+}
+
+function restoreRecord(trashIndex) {
+  const item = appState.trash.splice(trashIndex, 1)[0];
+  if (item) {
+    delete item.deleted_at;
+    appState.records.push(item);
+    saveLocalRecords();
+    updateStatsAndBadges();
+    renderTable();
+    openTrashModal();
+    showToast("تمت استعادة المراسلة بنجاح", "success");
+  }
+}
+
+function emptyTrash() {
+  if (confirm("هل تريد تفريغ سلة المحذوفات نهائياً؟ لن يمكن التراجع عن هذه الخطوة.")) {
+    appState.trash = [];
+    saveLocalRecords();
+    updateStatsAndBadges();
+    openTrashModal();
+    showToast("تم تفريغ سلة المحذوفات نهائياً", "info");
+  }
+}
+
+/**
+ * تقارير المراسلات
+ */
+function openReportsModal() {
+  const total = appState.records.length;
+  const inCount = appState.records.filter(r => r.section === "الوارد").length;
+  const outCount = appState.records.filter(r => r.section === "الصادر").length;
+  const munCount = appState.records.filter(r => r.section === "بريد البلدية والبلديات").length;
+  const govCount = appState.records.filter(r => r.section === "بريد المحافظ").length;
+  const arcCount = appState.records.filter(r => r.archive === "مؤرشف").length;
+  const unArcCount = total - arcCount;
+
+  const secList = document.getElementById("reportSectionBreakdown");
+  secList.innerHTML = `
+    <li><strong>الوارد:</strong> ${inCount} مراسلة (${total ? Math.round(inCount/total*100) : 0}%)</li>
+    <li><strong>الصادر:</strong> ${outCount} مراسلة (${total ? Math.round(outCount/total*100) : 0}%)</li>
+    <li><strong>بريد البلدية والبلديات:</strong> ${munCount} مراسلة (${total ? Math.round(munCount/total*100) : 0}%)</li>
+    <li><strong>بريد المحافظ:</strong> ${govCount} مراسلة (${total ? Math.round(govCount/total*100) : 0}%)</li>
+    <li style="border-top: 1px solid #d1dde8; padding-top: 4px; margin-top: 4px;"><strong>إجمالي المراسلات:</strong> ${total} مراسلة</li>
+  `;
+
+  const arcList = document.getElementById("reportArchiveBreakdown");
+  arcList.innerHTML = `
+    <li><strong style="color: #137333;">🟢 مؤرشف إلكترونياً:</strong> ${arcCount} مراسلة (${total ? Math.round(arcCount/total*100) : 0}%)</li>
+    <li><strong style="color: #c5221f;">🔴 غير مؤرشف:</strong> ${unArcCount} مراسلة (${total ? Math.round(unArcCount/total*100) : 0}%)</li>
+  `;
+
+  document.getElementById("reportDateStamp").innerText = `تاريخ التقرير: ${new Date().toLocaleDateString('ar-IQ')} - الساعة: ${new Date().toLocaleTimeString('ar-IQ')}`;
+  document.getElementById("reportsModal").classList.add("active");
+}
+
+function closeReportsModal() {
+  document.getElementById("reportsModal").classList.remove("active");
+}
+
+function openSettingsModal() {
+  loadSettings();
+  document.getElementById("settingsModal").classList.add("active");
+}
+
+function closeSettingsModal() {
+  document.getElementById("settingsModal").classList.remove("active");
+}
+
+/**
+ * زر التحديث العام
+ */
+function refreshData(userInitiated = false) {
+  loadRecords().then(() => {
+    updateStatsAndBadges();
+    renderTable();
+    if (userInitiated) showToast("تم تحديث البيانات", "info");
+  });
+}
+
+/**
+ * دوال المساعدة والتنسيق
+ */
+function normalizeString(str) {
+  if (!str) return "";
+  return String(str).trim().toLowerCase()
+    .replace(/[٠-٩]/g, d => "0123456789"["٠١٢٣٤٥٦٧٨٩".indexOf(d)]);
+}
+
+function formatDateShow(val) {
+  if (!val) return "";
+  return String(val);
+}
+
+function normalizeInputDate(val) {
+  if (!val) return "";
+  // إذا كان التاريخ بتنسيق DD/MM/YYYY نحوله لـ YYYY-MM-DD لمدخل date في المتصفح
+  const parts = String(val).split(/[\/\-]/);
+  if (parts.length === 3) {
+    if (parts[2].length === 4) {
+      return `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+    }
+  }
+  return val;
+}
+
+function escapeHtml(text) {
+  if (!text) return "";
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function showToast(message, type = "info") {
+  const container = document.getElementById("toastContainer");
+  const toast = document.createElement("div");
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i> <span>${message}</span>`;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-100%)';
+    toast.style.transition = 'all 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
+}
+
+</script>
+</body>
+</html>
